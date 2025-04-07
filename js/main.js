@@ -7,7 +7,7 @@ const App = {
       isFirstTime: true, //初回起動かどうか
       testData: "",
       testArray: [1, 2, 3, 4],
-      fetchNum: 3,
+      fetchNum: 5,
       dataList: {},
       isDataLoading: false,
     }
@@ -29,8 +29,9 @@ const App = {
     },
     fetchMeigen() {
       this.isDataLoading = true;
-      //以下非同期処理でURLアクセス
-      axios.get('https://api.allorigins.win/get?url=' + encodeURIComponent('https://meigen.doodlenote.net/api/json.php?c=' + this.fetchNum)
+      //以下非同期処理でURLアクセス(GETパラメータにタイムスタンプを付加し同URLへのブラウザキャッシュが効かないようにしている)
+      axios.get('https://api.allorigins.win/get?url=' +
+        encodeURIComponent('https://meigen.doodlenote.net/api/json.php?c=' + this.fetchNum + '&timestamp=' + new Date().getTime())
       ).then(response => {//取得成功したら
         this.dataList = JSON.parse(response.data.contents);
       }).catch(error => {
