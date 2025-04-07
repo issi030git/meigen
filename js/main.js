@@ -33,12 +33,11 @@ const App = {
       axios.get('https://api.allorigins.win/get?url=' + encodeURIComponent('https://meigen.doodlenote.net/api/json.php?c=' + this.fetchNum)
       ).then(response => {//取得成功したら
         this.dataList = JSON.parse(response.data.contents);
-        this.isDataLoading = false;
       }).catch(error => {
         console.error("Error:", error);
+      }).finally(() => {
         this.isDataLoading = false;
       });
-
     }
   },
   //data内の変数を監視し変化した場合に呼ばれる処理を記述可能
