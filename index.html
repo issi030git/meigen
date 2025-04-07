@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="google" content="notranslate" />
+
+    <!-- for BeerCSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/beercss@3.9.7/dist/cdn/beer.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/beercss@3.9.7/dist/cdn/beer.min.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.2/dist/cdn/material-dynamic-colors.min.js"
+    ></script>
+
+    <!-- Import Vue 3 -->
+    <script src="//cdn.jsdelivr.net/npm/vue@3"></script>
+    <!-- <script src="//cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script> -->
+
+    <!-- my CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- favicon setting -->
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      sizes="180x180"
+      href="apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="android-touch-icon.png"
+    />
+
+    <link rel="manifest" href="manifest.json" />
+
+    <title>MEIGEN</title>
+  </head>
+
+  <body class="light">
+    <!-- このタグ内にVueの効果が及ぶ -->
+    <div id="app" class="surface-variant">
+      <!-- アプリタイトルバー -->
+      <header class="primary fixed pl-0 m l">
+        <h5 class="left-align">{{appTitle}}</h5>
+      </header>
+      <header class="primary fixed s">
+        <nav>
+          <img class="circle" :src="appIconPath" />
+          <h5 class="left-align">{{appTitle}}</h5>
+        </nav>
+      </header>
+      <!-- 大・中画面時のナビゲーションバー(左) -->
+      <nav class="left m l primary">
+        <header>
+          <img class="circle" :src="appIconPath" />
+        </header>
+        <a data-ui="#home">
+          <i>home</i>
+          <div>Home</div>
+        </a>
+        <a data-ui="#setting">
+          <i>settings</i>
+          <div>Setting</div>
+        </a>
+        <a data-ui="#help">
+          <i>help</i>
+          <div>Help</div>
+        </a>
+      </nav>
+      <!-- 小画面時のナビゲーションバー(底) -->
+      <nav class="bottom s">
+        <a class="max" data-ui="#home">
+          <i>home</i>
+          <div>Home</div>
+        </a>
+        <a class="max" data-ui="#setting">
+          <i>settings</i>
+          <div>Setting</div>
+        </a>
+        <a class="max" data-ui="#help">
+          <i>help</i>
+          <div>Help</div>
+        </a>
+        <a data-ui="#nab-more">
+          <i>more_vert</i>
+        </a>
+        <!-- nav.bottom.sのmoreを押すと表示されるダイアログ -->
+        <dialog id="nab-more" class="bottom">
+          <nav class="bottom right-align">
+            <a data-ui="#nab-more" class="max">
+              <i>block</i>
+              <div>Dummy</div>
+            </a>
+            <a data-ui="#nab-more" class="max">
+              <i>block</i>
+              <div>Dummy</div>
+            </a>
+            <a data-ui="#nab-more" class="max">
+              <i>block</i>
+              <div>Dummy</div>
+            </a>
+            <a data-ui="#nab-more">
+              <i>close</i>
+            </a>
+          </nav>
+        </dialog>
+      </nav>
+      <!-- メインコンテンツ -->
+      <main class="responsive">
+        <!-- 画面1 -->
+        <div id="home" class="page left">
+          <article class="">
+            <h6>ホーム画面</h6>
+            <hr class="small" />
+            <div v-if="isDataLoading" class="center-align">
+              <progress class="circle"></progress>
+            </div>
+            <div v-else v-cloak>
+              <article v-for="item in dataList" class="border">
+                <p>{{item.meigen}}</p>
+                <p class="right-align">{{item.auther}}</p>
+                <!-- <div class="space"></div> -->
+                <nav class="right-align mt-0">
+                  <button class="circle">
+                    <i>favorite</i>
+                  </button>
+                </nav>
+              </article>
+            </div>
+            <nav class="center-align">
+              <button class="secondary">リロード</button>
+            </nav>
+          </article>
+        </div>
+        <!-- 画面2 -->
+        <div id="setting" class="page left">
+          <article class="">
+            <h5>設定画面</h5>
+            <p>アプリの設定項目が変更できるページ</p>
+          </article>
+        </div>
+        <!-- 画面3 -->
+        <div id="help" class="page left">
+          <article class="">
+            <h5>Help</h5>
+            <p>使い方が書いてあるページ</p>
+          </article>
+        </div>
+      </main>
+    </div>
+    <!-- for axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Load my JS -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
