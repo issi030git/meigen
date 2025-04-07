@@ -124,12 +124,12 @@
             <h6>ホーム画面</h6>
             <hr class="small" />
             <div v-if="isDataLoading" class="center-align">
-              <progress class="circle"></progress>
+              <progress class="circle large"></progress>
             </div>
             <div v-else v-cloak>
-              <article v-for="item in dataList" class="border">
-                <p>{{item.meigen}}</p>
-                <p class="right-align">{{item.auther}}</p>
+              <article v-for="item in dataList" class="secondary-container">
+                <h5 class="small">「{{item.meigen}}」</h5>
+                <p class="right-align"><i>person_edit</i> {{item.auther}}</p>
                 <!-- <div class="space"></div> -->
                 <nav class="right-align mt-0">
                   <button class="circle">
