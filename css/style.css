@@ -6,6 +6,11 @@
   margin-top: 0;
 }
 
+dialog {
+  padding: 16px !important;
+  padding-bottom: 24px !important;
+}
+
 [v-cloak] {
   display: none;
 }

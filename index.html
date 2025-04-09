@@ -116,6 +116,21 @@
           </nav>
         </dialog>
       </nav>
+
+      <dialog id="load-failed-dialog" class="error-container">
+        <nav class="right-align mt-0">
+          <button
+            class="transparent small circle"
+            data-ui="#load-failed-dialog"
+          >
+            <i>close</i>
+          </button>
+        </nav>
+        <span
+          >データ取得に失敗しました。少し待ってから再実行してください。</span
+        >
+      </dialog>
+
       <!-- メインコンテンツ -->
       <main class="responsive">
         <!-- 画面1 -->
@@ -139,7 +154,14 @@
               </article>
             </div>
             <nav class="center-align">
-              <button @click="fetchMeigen()" class="secondary">リロード</button>
+              <button
+                @click="fetchMeigen()"
+                :disabled="isDataLoading"
+                class="secondary"
+              >
+                <i>refresh</i>
+                <span>リロード</span>
+              </button>
             </nav>
           </article>
         </div>
