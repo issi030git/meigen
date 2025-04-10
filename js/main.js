@@ -109,8 +109,8 @@ const App = {
       document.querySelectorAll('a[data-ui="#home"]').forEach((el) => el.classList.add("active"));
     }
 
-    // this.fetchMeigen(); //本番用コード
-    this.fetchMeigenD(); //デバッグ用コード
+    this.fetchMeigen(); //本番用コード
+    // this.fetchMeigenD(); //デバッグ用コード
   },
 };
 

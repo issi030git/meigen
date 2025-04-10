@@ -139,6 +139,40 @@
         >
       </dialog>
 
+      <dialog id="record-dialog" class="right">
+        <h6>辞書へ登録</h6>
+        <fieldset>
+          <legend>登録先を選択</legend>
+          <nav class="vertical">
+            <label class="radio">
+              <input type="radio" value="0" v-model="selectedDict" />
+              <span>自己啓発</span>
+            </label>
+            <label class="radio">
+              <input type="radio" value="1" v-model="selectedDict" />
+              <span>対人関係</span>
+            </label>
+            <label class="radio">
+              <input type="radio" value="2" v-model="selectedDict" />
+              <span>人生教訓</span>
+            </label>
+            <label class="radio">
+              <input type="radio" value="3" v-model="selectedDict" />
+              <span>その他</span>
+            </label>
+          </nav>
+        </fieldset>
+        <nav class="right-align">
+          <button class="border" data-ui="#record-dialog">Cancel</button>
+          <button
+            @click="recordDict(selectedDict,selectedMeigen,selectedAuther)"
+            data-ui="#record-dialog"
+          >
+            登録
+          </button>
+        </nav>
+      </dialog>
+
       <!-- メインコンテンツ -->
       <main class="responsive">
         <!-- 画面 -->
@@ -154,62 +188,27 @@
             </div>
             <div v-else v-cloak>
               <article v-for="item in dataList" class="surface-container-high">
-                <blockquote>
+                <blockquote class="py-0">
                   <h5 class="small">{{item.meigen}}</h5>
                 </blockquote>
                 <p class="right-align"><i>person_edit</i> {{item.auther}}</p>
                 <!-- <div class="space"></div> -->
                 <nav class="right-align mt-0">
                   <button
-                    class="circle"
+                    class="circle secondary small"
                     data-ui="#record-dialog"
                     @click="selectedMeigen=item.meigen;selectedAuther=item.auther;"
                   >
                     <i>favorite</i>
                   </button>
                 </nav>
-                <dialog id="record-dialog" class="right">
-                  <h6>辞書へ登録</h6>
-                  <fieldset>
-                    <legend>登録先を選択</legend>
-                    <nav class="vertical">
-                      <label class="radio">
-                        <input type="radio" value="0" v-model="selectedDict" />
-                        <span>自己啓発</span>
-                      </label>
-                      <label class="radio">
-                        <input type="radio" value="1" v-model="selectedDict" />
-                        <span>対人関係</span>
-                      </label>
-                      <label class="radio">
-                        <input type="radio" value="2" v-model="selectedDict" />
-                        <span>人生教訓</span>
-                      </label>
-                      <label class="radio">
-                        <input type="radio" value="3" v-model="selectedDict" />
-                        <span>その他</span>
-                      </label>
-                    </nav>
-                  </fieldset>
-                  <nav class="right-align">
-                    <button class="border" data-ui="#record-dialog">
-                      Cancel
-                    </button>
-                    <button
-                      @click="recordDict(selectedDict,selectedMeigen,selectedAuther)"
-                      data-ui="#record-dialog"
-                    >
-                      登録
-                    </button>
-                  </nav>
-                </dialog>
               </article>
             </div>
             <nav class="center-align">
               <button
                 @click="fetchMeigen()"
                 :disabled="isDataLoading"
-                class="secondary"
+                class="primary"
               >
                 <i>refresh</i>
                 <span>再探索</span>
@@ -255,7 +254,7 @@
                   v-for="(item,index) in dictData[0]"
                   class="secondary-container"
                 >
-                  <blockquote>
+                  <blockquote class="py-0">
                     <h5 class="small">{{item.meigen}}</h5>
                   </blockquote>
                   <p class="right-align mt-0">
@@ -282,7 +281,7 @@
                   v-for="(item,index) in dictData[1]"
                   class="secondary-container"
                 >
-                  <blockquote>
+                  <blockquote class="py-0">
                     <h5 class="small">{{item.meigen}}</h5>
                   </blockquote>
                   <p class="right-align mt-0">
@@ -309,7 +308,7 @@
                   v-for="(item,index) in dictData[2]"
                   class="secondary-container"
                 >
-                  <blockquote>
+                  <blockquote class="py-0">
                     <h5 class="small">{{item.meigen}}</h5>
                   </blockquote>
                   <p class="right-align mt-0">
@@ -336,7 +335,7 @@
                   v-for="(item,index) in dictData[3]"
                   class="secondary-container"
                 >
-                  <blockquote>
+                  <blockquote class="py-0">
                     <h5 class="small">{{item.meigen}}</h5>
                   </blockquote>
                   <p class="right-align mt-0">
