@@ -11,6 +11,11 @@ const App = {
       dataList: {},
       isDataLoading: false,
       isLoadFailed: false,
+
+      dictTab1Data: [],
+      dictTab2Data: [],
+      dictTab3Data: [],
+      dictTab4Data: [],
     }
   },
   // dataの更新を受け処理をした結果を返す(引数使用不可)

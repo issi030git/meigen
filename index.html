@@ -153,7 +153,7 @@
               <progress class="circle large"></progress>
             </div>
             <div v-else v-cloak>
-              <article v-for="item in dataList" class="secondary-container">
+              <article v-for="item in dataList" class="surface-container-high">
                 <blockquote>
                   <h5 class="small">{{item.meigen}}</h5>
                 </blockquote>
@@ -213,16 +213,31 @@
                   <span>その他</span>
                 </a>
               </div>
-              <div id="work_tab" class="page padding active">
-                <h5>Tab 1</h5>
+              <div id="work_tab" class="page mt-2 active">
+                <article
+                  v-for="item in dictTab1Data"
+                  class="secondary-container"
+                >
+                  <blockquote>
+                    <h5 class="small">{{item.meigen}}</h5>
+                  </blockquote>
+                  <p class="right-align mt-0">
+                    <i>person_edit</i> {{item.auther}}
+                  </p>
+                  <nav class="right-align mt-0">
+                    <button class="transparent circle small">
+                      <i>delete</i>
+                    </button>
+                  </nav>
+                </article>
               </div>
-              <div id="relation_tab" class="page padding">
+              <div id="relation_tab" class="page mt-2">
                 <h5>Tab 2</h5>
               </div>
-              <div id="life_tab" class="page padding">
+              <div id="life_tab" class="page mt-2">
                 <h5>Tab 3</h5>
               </div>
-              <div id="others_tab" class="page padding">
+              <div id="others_tab" class="page mt-2">
                 <h5>Tab 4</h5>
               </div>
             </div>
