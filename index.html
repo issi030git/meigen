@@ -67,30 +67,38 @@
         </header>
         <a data-ui="#home">
           <i>home</i>
-          <div>Home</div>
+          <div>探索</div>
+        </a>
+        <a data-ui="#dictionary">
+          <i>dictionary</i>
+          <div>辞書</div>
         </a>
         <a data-ui="#setting">
           <i>settings</i>
-          <div>Setting</div>
+          <div>設定</div>
         </a>
         <a data-ui="#help">
           <i>help</i>
-          <div>Help</div>
+          <div>ヘルプ</div>
         </a>
       </nav>
       <!-- 小画面時のナビゲーションバー(底) -->
       <nav class="bottom s">
         <a class="max" data-ui="#home">
           <i>home</i>
-          <div>Home</div>
+          <div>探索</div>
+        </a>
+        <a data-ui="#dictionary">
+          <i>dictionary</i>
+          <div>辞書</div>
         </a>
         <a class="max" data-ui="#setting">
           <i>settings</i>
-          <div>Setting</div>
+          <div>設定</div>
         </a>
         <a class="max" data-ui="#help">
           <i>help</i>
-          <div>Help</div>
+          <div>ヘルプ</div>
         </a>
         <a data-ui="#nab-more">
           <i>more_vert</i>
@@ -133,17 +141,20 @@
 
       <!-- メインコンテンツ -->
       <main class="responsive">
-        <!-- 画面1 -->
+        <!-- 画面 -->
         <div id="home" class="page left">
           <article class="">
-            <h6>ホーム画面</h6>
+            <h6>探索</h6>
             <hr class="small" />
+            <p class="mb-2">ランダムに名言を取得します。</p>
             <div v-if="isDataLoading" class="center-align">
               <progress class="circle large"></progress>
             </div>
             <div v-else v-cloak>
               <article v-for="item in dataList" class="secondary-container">
-                <h5 class="small">「{{item.meigen}}」</h5>
+                <blockquote>
+                  <h5 class="small">{{item.meigen}}</h5>
+                </blockquote>
                 <p class="right-align"><i>person_edit</i> {{item.auther}}</p>
                 <!-- <div class="space"></div> -->
                 <nav class="right-align mt-0">
@@ -160,23 +171,33 @@
                 class="secondary"
               >
                 <i>refresh</i>
-                <span>リロード</span>
+                <span>再探索</span>
               </button>
             </nav>
           </article>
         </div>
-        <!-- 画面2 -->
+        <!-- 画面 -->
         <div id="setting" class="page left">
           <article class="">
-            <h5>設定画面</h5>
-            <p>アプリの設定項目が変更できるページ</p>
+            <h6>設定</h6>
+            <hr class="small" />
+            <p>アプリの設定項目が変更できるページ（工事中）</p>
           </article>
         </div>
-        <!-- 画面3 -->
+        <!-- 画面 -->
+        <div id="dictionary" class="page left">
+          <article class="">
+            <h6>辞書</h6>
+            <hr class="small" />
+            <p>お気に入りの名言を記録し見返すことができます。（工事中）</p>
+          </article>
+        </div>
+        <!-- 画面 -->
         <div id="help" class="page left">
           <article class="">
-            <h5>Help</h5>
-            <p>使い方が書いてあるページ</p>
+            <h6>ヘルプ</h6>
+            <hr class="small" />
+            <p>使い方が書いてあるページ（工事中）</p>
           </article>
         </div>
       </main>
