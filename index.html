@@ -230,9 +230,7 @@
           <article class="">
             <h6>辞書</h6>
             <hr class="small" />
-            <p class="mb-2">
-              お気に入りの名言を見返すことができます。（工事中）
-            </p>
+            <p class="mb-2">お気に入りの名言を見返すことができます。</p>
             <div>
               <div class="tabs">
                 <a class="vertical active" data-ui="#work_tab">
@@ -272,6 +270,12 @@
                     </button>
                   </nav>
                 </article>
+                <article
+                  v-if="dictData[0].length==0"
+                  class="tertiary-container"
+                >
+                  <nav><i>info</i><span>登録データがありません。</span></nav>
+                </article>
               </div>
               <div id="relation_tab" class="page mt-2">
                 <article
@@ -292,6 +296,12 @@
                       <i>delete</i>
                     </button>
                   </nav>
+                </article>
+                <article
+                  v-if="dictData[1].length==0"
+                  class="tertiary-container"
+                >
+                  <nav><i>info</i><span>登録データがありません。</span></nav>
                 </article>
               </div>
               <div id="life_tab" class="page mt-2">
@@ -314,6 +324,12 @@
                     </button>
                   </nav>
                 </article>
+                <article
+                  v-if="dictData[2].length==0"
+                  class="tertiary-container"
+                >
+                  <nav><i>info</i><span>登録データがありません。</span></nav>
+                </article>
               </div>
               <div id="others_tab" class="page mt-2">
                 <article
@@ -334,6 +350,12 @@
                       <i>delete</i>
                     </button>
                   </nav>
+                </article>
+                <article
+                  v-if="dictData[3].length==0"
+                  class="tertiary-container"
+                >
+                  <nav><i>info</i><span>登録データがありません。</span></nav>
                 </article>
               </div>
             </div>
