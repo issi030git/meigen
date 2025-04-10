@@ -34,7 +34,18 @@ const App = {
     loadInitialData() {
       if (localStorage.getItem("visited") !== null)
         this.isFirstTime = false;
+      // 保存済辞書をロード
+      for (let dict_num = 0; dict_num < this.dictData.length; dict_num++) {
+        let loadValue = localStorage.getItem("dict" + String(dict_num));
+        if (loadValue !== null)
+          this.dictData[dict_num] = JSON.parse(loadValue);
+      }
     },
+
+    saveDictData(dict_num) {
+      localStorage.setItem("dict" + String(dict_num), JSON.stringify(this.dictData[dict_num]));
+    },
+
     test(arg1, arg2) {
       return arg1 + arg2;
     },
@@ -63,10 +74,12 @@ const App = {
     recordDict(dict_num, meigen, auther) {
       dict_num = parseInt(dict_num);
       this.dictData[dict_num].push({ "meigen": meigen, "auther": auther });
+      this.saveDictData(dict_num);
       this.selectedDict = "0";
     },
     deleteDictItem(dict_num, index) {
       this.dictData[dict_num].splice(index, 1);
+      this.saveDictData(dict_num);
     }
   },
   //data内の変数を監視し変化した場合に呼ばれる処理を記述可能
