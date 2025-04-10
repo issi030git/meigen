@@ -13,6 +13,10 @@
   margin-bottom: 1rem !important;
 }
 
+div.tabs > a.active {
+  background-color: var(--inverse-primary);
+}
+
 dialog {
   padding: 16px !important;
   padding-bottom: 24px !important;

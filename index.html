@@ -146,7 +146,9 @@
           <article class="">
             <h6>探索</h6>
             <hr class="small" />
-            <p class="mb-2">ランダムに名言を取得します。</p>
+            <p class="mb-2">
+              ランダムに名言を取得し、お気に入りのものは辞書へ記録できます。
+            </p>
             <div v-if="isDataLoading" class="center-align">
               <progress class="circle large"></progress>
             </div>
@@ -189,7 +191,41 @@
           <article class="">
             <h6>辞書</h6>
             <hr class="small" />
-            <p>お気に入りの名言を記録し見返すことができます。（工事中）</p>
+            <p class="mb-2">
+              お気に入りの名言を見返すことができます。（工事中）
+            </p>
+            <div>
+              <div class="tabs">
+                <a class="vertical active" data-ui="#work_tab">
+                  <i>trending_up</i>
+                  <span>自己啓発</span>
+                </a>
+                <a class="vertical" data-ui="#relation_tab">
+                  <i>group</i>
+                  <span>対人関係</span>
+                </a>
+                <a class="vertical" data-ui="#life_tab">
+                  <i>school</i>
+                  <span>人生教訓</span>
+                </a>
+                <a class="vertical" data-ui="#others_tab">
+                  <i>sms</i>
+                  <span>その他</span>
+                </a>
+              </div>
+              <div id="work_tab" class="page padding active">
+                <h5>Tab 1</h5>
+              </div>
+              <div id="relation_tab" class="page padding">
+                <h5>Tab 2</h5>
+              </div>
+              <div id="life_tab" class="page padding">
+                <h5>Tab 3</h5>
+              </div>
+              <div id="others_tab" class="page padding">
+                <h5>Tab 4</h5>
+              </div>
+            </div>
           </article>
         </div>
         <!-- 画面 -->
