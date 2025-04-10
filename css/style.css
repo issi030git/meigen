@@ -6,6 +6,13 @@
   margin-top: 0;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+
 dialog {
   padding: 16px !important;
   padding-bottom: 24px !important;
