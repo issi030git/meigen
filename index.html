@@ -274,13 +274,67 @@
                 </article>
               </div>
               <div id="relation_tab" class="page mt-2">
-                <h5>Tab 2</h5>
+                <article
+                  v-for="(item,index) in dictData[1]"
+                  class="secondary-container"
+                >
+                  <blockquote>
+                    <h5 class="small">{{item.meigen}}</h5>
+                  </blockquote>
+                  <p class="right-align mt-0">
+                    <i>person_edit</i> {{item.auther}}
+                  </p>
+                  <nav class="right-align mt-0">
+                    <button
+                      class="transparent circle small"
+                      @click="deleteDictItem(1,index)"
+                    >
+                      <i>delete</i>
+                    </button>
+                  </nav>
+                </article>
               </div>
               <div id="life_tab" class="page mt-2">
-                <h5>Tab 3</h5>
+                <article
+                  v-for="(item,index) in dictData[2]"
+                  class="secondary-container"
+                >
+                  <blockquote>
+                    <h5 class="small">{{item.meigen}}</h5>
+                  </blockquote>
+                  <p class="right-align mt-0">
+                    <i>person_edit</i> {{item.auther}}
+                  </p>
+                  <nav class="right-align mt-0">
+                    <button
+                      class="transparent circle small"
+                      @click="deleteDictItem(2,index)"
+                    >
+                      <i>delete</i>
+                    </button>
+                  </nav>
+                </article>
               </div>
               <div id="others_tab" class="page mt-2">
-                <h5>Tab 4</h5>
+                <article
+                  v-for="(item,index) in dictData[3]"
+                  class="secondary-container"
+                >
+                  <blockquote>
+                    <h5 class="small">{{item.meigen}}</h5>
+                  </blockquote>
+                  <p class="right-align mt-0">
+                    <i>person_edit</i> {{item.auther}}
+                  </p>
+                  <nav class="right-align mt-0">
+                    <button
+                      class="transparent circle small"
+                      @click="deleteDictItem(3,index)"
+                    >
+                      <i>delete</i>
+                    </button>
+                  </nav>
+                </article>
               </div>
             </div>
           </article>
