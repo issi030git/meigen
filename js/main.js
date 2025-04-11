@@ -3,7 +3,7 @@ const App = {
     return {
       //ここにデータを宣言する
       appTitle: "MEIGEN",
-      appIconPath: "/512.png",
+      appIconPath: "512.png",
       isFirstTime: true, //初回起動かどうか
       testData: "",
       testArray: [1, 2, 3, 4],
