@@ -221,7 +221,13 @@
           <article class="">
             <h6>設定</h6>
             <hr class="small" />
-            <p>アプリの設定項目が変更できるページ（工事中）</p>
+            <p>アプリの設定を変更します。</p>
+            <h6 class="small">１回あたり名言取得個数：{{fetchNum}}</h6>
+            <label class="slider">
+              <input type="range" v-model="fetchNum" min="5" max="10" />
+              <span></span>
+              <div class="tooltip"></div>
+            </label>
           </article>
         </div>
         <!-- 画面 -->

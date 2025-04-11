@@ -29,11 +29,17 @@ const App = {
       return "computed_" + this.testData;
     },
   },
-  //通常の関数のような処理
+  // 通常の関数のような処理
   methods: {
     loadInitialData() {
+      let loadValue;
+      // 訪問済フラグを取得
       if (localStorage.getItem("visited") !== null)
         this.isFirstTime = false;
+      // 名言取得数をロード
+      loadValue = localStorage.getItem("fetchNum");
+      if (loadValue !== null)
+        this.fetchNum = parseInt(loadValue);
       // 保存済辞書をロード
       for (let dict_num = 0; dict_num < this.dictData.length; dict_num++) {
         let loadValue = localStorage.getItem("dict" + String(dict_num));
@@ -84,6 +90,9 @@ const App = {
   },
   //data内の変数を監視し変化した場合に呼ばれる処理を記述可能
   watch: {
+    fetchNum(newVal, oldVal) {
+      localStorage.setItem("fetchNum", String(newVal));
+    },
     testData(newVal, oldVal) {
       //ここでなにか処理
     },
