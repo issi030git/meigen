@@ -32,9 +32,13 @@ div.tabs > a.active {
   background-color: var(--inverse-primary);
 }
 
-dialog {
+dialog#load-failed-dialog {
   padding: 16px !important;
   padding-bottom: 24px !important;
+}
+
+dialog#nab-more {
+  background-color: var(--surface-container);
 }
 
 [v-cloak] {
