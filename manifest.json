@@ -5,7 +5,7 @@
   "background_color": "#0061a4",
   "display": "standalone",
   "scope": "/",
-  "start_url": "https://issi030git.github.io/meigen/",
+  "start_url": "/meigen/",
   "icons": [
     {
       "src": "android-touch-icon.png",
