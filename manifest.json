@@ -5,7 +5,7 @@
   "background_color": "#0061a4",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/meigen/",
+  "start_url": "/meigen/index.html",
   "icons": [
     {
       "src": "android-touch-icon.png",
