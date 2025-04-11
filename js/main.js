@@ -81,6 +81,7 @@ const App = {
       dict_num = parseInt(dict_num);
       this.dictData[dict_num].push({ "meigen": meigen, "auther": auther });
       this.saveDictData(dict_num);
+      ui("#recorded-snackbar");
       this.selectedDict = "0";
     },
     deleteDictItem(dict_num, index) {
