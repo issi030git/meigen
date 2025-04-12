@@ -226,12 +226,26 @@
             <h6>設定</h6>
             <hr class="small" />
             <p>アプリの設定を変更します。</p>
-            <h6 class="small">１回あたり名言取得個数：{{fetchNum}}</h6>
-            <label class="slider">
-              <input type="range" v-model="fetchNum" min="5" max="10" />
-              <span></span>
-              <div class="tooltip"></div>
-            </label>
+
+            <div class="field middle-align">
+              <nav>
+                <h6 class="small">名言取得個数：{{fetchNum}}</h6>
+                <label class="slider">
+                  <input type="range" v-model="fetchNum" min="5" max="10" />
+                  <span></span>
+                  <div class="tooltip"></div>
+                </label>
+              </nav>
+            </div>
+            <div class="field middle-align">
+              <nav>
+                <h6 class="small max">起動時の自動取得</h6>
+                <label class="switch">
+                  <input type="checkbox" v-model="isInitialFetch" />
+                  <span></span>
+                </label>
+              </nav>
+            </div>
           </article>
         </div>
         <!-- 画面 -->
