@@ -25,7 +25,7 @@
     <!-- <script src="//cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script> -->
 
     <!-- my CSS -->
-    <link rel="stylesheet" href="css/style.css?0.9.1" />
+    <link rel="stylesheet" href="css/style.css?0.9.2" />
     <!-- favicon setting -->
     <link rel="shortcut icon" href="favicon.ico" />
 
@@ -215,7 +215,8 @@
                 class="primary"
               >
                 <i>refresh</i>
-                <span>再探索</span>
+                <span v-if="isOnceLoaded">再探索</span>
+                <span v-else>探索</span>
               </button>
             </nav>
           </article>
@@ -397,6 +398,6 @@
     <!-- for axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Load my JS -->
-    <script src="js/main.js?0.9.1"></script>
+    <script src="js/main.js?0.9.2"></script>
   </body>
 </html>

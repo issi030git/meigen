@@ -10,6 +10,7 @@ const App = {
       isInitialFetch: false,
       fetchNum: 5,
       dataList: {},
+      isOnceLoaded: false,
       isDataLoading: false,
       isLoadFailed: false,
 
@@ -73,13 +74,8 @@ const App = {
         // console.error("Error:", error);
       }).finally(() => {
         this.isDataLoading = false;
+        this.isOnceLoaded = true;
       });
-    },
-    fetchMeigenD() {
-      this.isLoadFailed = false;
-      this.isDataLoading = true;
-      this.dataList = JSON.parse('[{"meigen":"真の友は共に孤独である。","auther":"ボナール"},{"meigen":"解決策が分らないのではない。問題が分っていないのだ","auther":"チェスタートン"},{"meigen":"心の奥底に達してあらゆる病を癒せる音楽、それは暖かい言葉だ。","auther":"エマーソン"},{"meigen":"平等主義者は彼ら自身の水準まで他人を引き上げることを望むが、彼ら自身以上に引き上げようとはしない。","auther":"サミュエル＝ジョンソン"},{"meigen":"生きる勇気を持たないものは、戦う前に消えていく","auther":"浦沢直樹、勝鹿北星(漫画家) 出典:MASTERキートン キャラクタ:平賀・キートン・太一 [漫画・アニメの名言]"}]');
-      this.isDataLoading = false;
     },
     recordDict(dict_num, meigen, auther) {
       dict_num = parseInt(dict_num);
