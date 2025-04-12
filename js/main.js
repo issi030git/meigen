@@ -1,3 +1,5 @@
+const DICT_NAME = { "0": "自己啓発", "1": "対人関係", "2": "人生教訓", "3": "その他", };
+
 const App = {
   data() {
     return {
@@ -15,6 +17,7 @@ const App = {
       isLoadFailed: false,
 
       selectedDict: "0",
+      selectedIndex: 0,
       selectedAuther: "",
       selectedMeigen: "",
       dictData: [
@@ -29,6 +32,9 @@ const App = {
   computed: {
     getTimerSecondValue: function () {
       return "computed_" + this.testData;
+    },
+    DictName: function () {
+      return DICT_NAME[this.selectedDict];
     },
   },
   // 通常の関数のような処理
@@ -85,8 +91,10 @@ const App = {
       this.selectedDict = "0";
     },
     deleteDictItem(dict_num, index) {
+      dict_num = parseInt(dict_num);
       this.dictData[dict_num].splice(index, 1);
       this.saveDictData(dict_num);
+      this.selectedDict = "0";
     }
   },
   //data内の変数を監視し変化した場合に呼ばれる処理を記述可能
