@@ -7,6 +7,7 @@ const App = {
       isFirstTime: true, //初回起動かどうか
       testData: "",
       testArray: [1, 2, 3, 4],
+      isInitialFetch: false,
       fetchNum: 5,
       dataList: {},
       isDataLoading: false,
@@ -40,6 +41,9 @@ const App = {
       loadValue = localStorage.getItem("fetchNum");
       if (loadValue !== null)
         this.fetchNum = parseInt(loadValue);
+      // 起動時取得の有無をロード
+      if (localStorage.getItem("initialFetch") !== null)
+        this.isInitialFetch = true;
       // 保存済辞書をロード
       for (let dict_num = 0; dict_num < this.dictData.length; dict_num++) {
         let loadValue = localStorage.getItem("dict" + String(dict_num));
@@ -94,6 +98,12 @@ const App = {
     fetchNum(newVal, oldVal) {
       localStorage.setItem("fetchNum", String(newVal));
     },
+    isInitialFetch(newVal, oldVal) {
+      if (newVal)
+        localStorage.setItem("initialFetch", "1");
+      else
+        localStorage.removeItem("initialFetch");
+    },
     testData(newVal, oldVal) {
       //ここでなにか処理
     },
@@ -118,9 +128,8 @@ const App = {
       document.getElementById("home").classList.add("active");
       document.querySelectorAll('a[data-ui="#home"]').forEach((el) => el.classList.add("active"));
     }
-
-    this.fetchMeigen(); //本番用コード
-    // this.fetchMeigenD(); //デバッグ用コード
+    if (this.isInitialFetch)
+      this.fetchMeigen();
   },
 };
 
