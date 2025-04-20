@@ -15,7 +15,7 @@ const App = {
       isOnceLoaded: false,
       isDataLoading: false,
       isLoadFailed: false,
-
+      filterText: "",
       selectedDict: "0",
       selectedIndex: 0,
       selectedAuther: "",

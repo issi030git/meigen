@@ -25,7 +25,7 @@
     <!-- <script src="//cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script> -->
 
     <!-- my CSS -->
-    <link rel="stylesheet" href="css/style.css?0.9.3" />
+    <link rel="stylesheet" href="css/style.css?0.9.4" />
     <!-- favicon setting -->
     <link rel="shortcut icon" href="favicon.ico" />
 
@@ -275,7 +275,14 @@
             <h6>辞書</h6>
             <hr class="small" />
             <p class="mb-2">お気に入りの名言を見返すことができます。</p>
-            <div>
+            <nav>
+              <p>フィルタ：</p>
+              <div class="field small label suffix border max">
+                <input type="text" v-model="filterText" />
+                <label>本文に含まれるワードを入力</label>
+              </div>
+            </nav>
+            <div class="mt-2">
               <div class="tabs">
                 <a class="vertical active" data-ui="#work_tab">
                   <i>trending_up</i>
@@ -298,6 +305,7 @@
                 <article
                   v-for="(item,index) in dictData[0]"
                   class="secondary-container"
+                  v-show="item.meigen.includes(filterText)"
                 >
                   <blockquote class="py-0">
                     <h5 class="small">{{item.meigen}}</h5>
@@ -326,6 +334,7 @@
                 <article
                   v-for="(item,index) in dictData[1]"
                   class="secondary-container"
+                  v-show="item.meigen.includes(filterText)"
                 >
                   <blockquote class="py-0">
                     <h5 class="small">{{item.meigen}}</h5>
@@ -354,6 +363,7 @@
                 <article
                   v-for="(item,index) in dictData[2]"
                   class="secondary-container"
+                  v-show="item.meigen.includes(filterText)"
                 >
                   <blockquote class="py-0">
                     <h5 class="small">{{item.meigen}}</h5>
@@ -382,6 +392,7 @@
                 <article
                   v-for="(item,index) in dictData[3]"
                   class="secondary-container"
+                  v-show="item.meigen.includes(filterText)"
                 >
                   <blockquote class="py-0">
                     <h5 class="small">{{item.meigen}}</h5>
@@ -424,6 +435,6 @@
     <!-- for axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Load my JS -->
-    <script src="js/main.js?0.9.3"></script>
+    <script src="js/main.js?0.9.4"></script>
   </body>
 </html>
